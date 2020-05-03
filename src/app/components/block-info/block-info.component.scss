@@ -1,0 +1,20 @@
+div {
+    background-color: #FFEDF2;
+    border-radius: 4px;
+    width: 25vw;
+    height: 25vw;
+    max-height: 150px;
+    max-width: 150px;
+    display: flex;
+    align-items: center;
+}
+
+h2 {
+    margin: 0;
+    color: #CF6A8A;
+}
+
+p {
+    margin: 0;
+    color: var(--ion-color-primary);
+}

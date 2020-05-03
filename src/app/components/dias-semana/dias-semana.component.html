@@ -1,0 +1,9 @@
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let dia of diasSemana">
+      <div [class.selected]="diasTrabalho[dia.sigla.toLowerCase()]" (click)="diasTrabalho[dia.sigla.toLowerCase()] = !diasTrabalho[dia.sigla.toLowerCase()]">
+        <p>{{ dia.sigla }}</p>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

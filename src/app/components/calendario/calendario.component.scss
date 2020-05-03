@@ -1,0 +1,101 @@
+#grid-calendar {
+	display: flex;
+	justify-content: center;
+	.calendar {
+		width: 95%;
+		height: auto;
+		background-color: var(--ion-color-primary);
+		border-radius: 10px;
+		color: #fff;
+		align-self: center;
+        display: block;
+        padding: 10px
+	}
+}
+
+.select-month,
+.year {
+    text-align: center;
+}
+
+.year{
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 5px 0 10px;
+}
+
+.month, .arrow {
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.weekday-group,
+.day-group {
+	display: flex;
+	justify-content: flex-start;
+	flex-flow: row wrap;
+	flex-direction: row;
+}
+
+.weekday,
+.day {
+	text-align: center;
+	width: 14.2857%;
+	min-width: 14.2857%;
+	max-width: 14.2857%;
+}
+
+.weekday {
+    font-size: .8em;
+}
+
+.day {
+    font-weight: normal;
+    margin: 8px 0;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+.day.mesAnterior {
+    span {
+        opacity: 0% !important;
+        display: none !important;
+    }
+}
+
+.day.selected {
+    span {
+        background-color: white;
+        color: #8E24AA;
+        border-radius: 50%;
+        padding: 5px 6px;
+    }
+}
+
+.arrow ion-icon{
+    padding: 5px;
+}
+
+ion-content.sem-evento.area{
+    background: #fff;			
+}
+div.sem-evento{    
+    display: flex;
+    height: 30%;
+    justify-content: center;
+    flex-direction: column;	
+    text-align: center;
+    background: #fff!important;
+
+    p{
+        color: #596273;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 5px 0px 0px 0px;
+    }
+
+    span{        
+        color: #596273;
+        font-size: 15px;             
+    }
+}

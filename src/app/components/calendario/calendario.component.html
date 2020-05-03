@@ -1,0 +1,32 @@
+<ion-grid id="grid-calendar">
+  <ion-row class="calendar">
+    <ion-row class="select-month">
+      <ion-col (click)="mesAnterior()" class="arrow">
+        <ion-icon src="assets/arrow-left.svg"></ion-icon>
+      </ion-col>
+      <ion-col class="month">
+        <span>{{ nomeMesSelecionado }}</span>
+      </ion-col>
+      <ion-col (click)="proximoMes()" class="arrow">
+        <ion-icon src="assets/arrow-right.svg"></ion-icon>
+      </ion-col>
+    </ion-row>
+<!--     <ion-row>
+      <ion-col class="year">
+        {{ anoSelecionado }}
+      </ion-col>
+    </ion-row> -->
+    <ion-row class="weekday-group">
+      <ion-col *ngFor="let diaSemana of NOME_DIAS_DA_SEMANA" class="weekday">
+        {{ diaSemana.sigla }}
+      </ion-col>
+    </ion-row>
+    <ion-row class="day-group">
+      <ion-col *ngFor="let dia of diasMesSelecionado" class="day" [ngClass]="{ 'selected': dia.numero === diaSelecionado && dia.isCurrentMonth, 'mesAnterior': dia.isCurrentMonth === false}"
+        (click)="selectDay(dia)">
+        <span>{{ dia.numero > 9? dia.numero : '0' + dia.numero }}</span>
+      </ion-col>
+    </ion-row>
+  </ion-row>
+</ion-grid>
+

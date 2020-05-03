@@ -1,0 +1,29 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="2" class="ion-align-self-center">
+      <ion-icon class="calendar" src="assets/calendar.svg"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-grid class="internal-grid">
+        <ion-row>
+          <ion-col>
+            <p>{{ reserva.cliente.nome }}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <small>{{ this.servicos }} {{ reserva.horario }}</small>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+    <ion-col size="2" class="ion-text-end ion-align-self-center">
+      <ion-icon src="assets/arrow-right-rose.svg" (click)="viewDetails()"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-text-center">
+      <div class="line"></div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

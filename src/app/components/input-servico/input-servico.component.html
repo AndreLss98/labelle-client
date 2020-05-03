@@ -1,0 +1,14 @@
+<ion-row [class.selected]="disponivel">
+  <ion-col size="2" class="ion-align-self-center" (click)="onClickInput()">
+    <ion-icon class="input-icon" [src]="servico.icone_path"></ion-icon>
+  </ion-col>
+  <ion-col size="7" class="ion-align-self-center ion-text-center" (click)="onClickInput()">
+    <h6>{{ servico.nome }}</h6>
+  </ion-col>
+  <ion-col class="ion-align-self-center ion-text-center">
+    <div class="value-container">
+      <ion-icon class="cifrao" src="assets/cash.svg"></ion-icon>
+      <input [(ngModel)]="formatedValue" inputmode="numeric" (keyup)="formatValueInput()"/>
+    </div>
+  </ion-col>
+</ion-row>

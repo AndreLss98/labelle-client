@@ -1,0 +1,40 @@
+ion-row {
+    padding: 2vw;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    h6 {
+        margin: 0;
+        color: #B4B4B4;
+    }
+}
+
+ion-row.selected {
+    background-color: #FFEDF2;
+}
+
+input {
+    outline: none;
+    width: 80%;
+    background-color: transparent;
+    color: var(--ion-color-primary);
+    border: none;
+    text-align: left;
+}
+
+div.value-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    h6 {
+        color: var(--ion-color-primary);
+    }
+}
+
+ion-icon {
+    display: flex;
+}
+
+ion-icon.input-icon {
+    font-size: 1.5em;
+}

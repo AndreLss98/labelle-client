@@ -1,0 +1,21 @@
+ion-icon.calendar {
+    font-size: 2em;
+}
+
+ion-grid.internal-grid {
+    padding: 0;
+    ion-col {
+        padding: 0;
+    }
+    p {
+        margin: 0;
+        font-weight: 600;
+    }
+}
+
+div.line {
+    background-color: var(--ion-color-primary);
+    height: 1px;
+    width: 70%;
+    margin: auto;
+}
