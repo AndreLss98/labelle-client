@@ -10,7 +10,9 @@ export class CircleImgComponent implements OnInit {
   @Input() img_path: string;
   @Input() color: string;
 
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit() {
     

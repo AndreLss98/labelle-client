@@ -13,6 +13,7 @@ import { LineSeparatorComponent } from './line-separator/line-separator.componen
 import { InputServicoComponent } from './input-servico/input-servico.component';
 import { BlockServiceComponent } from './block-service/block-service.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { EnderecoComponent } from './endereco/endereco.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TicketComponent } from './ticket/ticket.component';
     HeaderComponent,
     InputServicoComponent,
     BlockServiceComponent,
+    EnderecoComponent,
   ],
   imports: [
     FormsModule,
@@ -42,7 +44,8 @@ import { TicketComponent } from './ticket/ticket.component';
     LineSeparatorComponent,
     HeaderComponent,
     InputServicoComponent,
-    BlockServiceComponent
+    BlockServiceComponent,
+    EnderecoComponent,
   ]
 })
 export class ComponentsModule { }

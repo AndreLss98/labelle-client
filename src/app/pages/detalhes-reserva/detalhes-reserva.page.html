@@ -1,9 +1,38 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>detalhes-reserva</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<header></header>
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <circle-img [img_path]="reserva.profissional.img_perfil" [color]="'#FFEDF2'"></circle-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <h2>{{ reserva.profissional.nome }}</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-around">
+      <ion-col size="4">
+          <block-info [info]="reserva.dia" [desc]="'Janeiro'"></block-info>
+      </ion-col>
+      <ion-col size="4">
+        <block-info [info]="reserva.horario"></block-info>
+      </ion-col>
+    </ion-row>
+    <endereco [endereco]="reserva.profissional.local"></endereco>
+    <line-separator [text]="'Serviços'" [textSize]="4" [lineSize]="3"></line-separator>
+    <ion-row class="ion-justify-content-around">
+      <ion-col size="3" *ngFor="let servico of reserva.servicos" class="ion-text-center">
+        <block-service [servico]="servico"></block-service>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ticket [total]="valorTotal"></ticket>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="div-cancel-container">
+    <ion-button color="primary" expand="block" size="large">Cancelar?</ion-button>
+  </div>
 </ion-content>
