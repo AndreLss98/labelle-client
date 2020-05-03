@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import mapboxgl from 'mapbox-gl';
@@ -11,7 +12,9 @@ export class MapPage implements OnInit {
 
   private map: mapboxgl.Map;
 
-  constructor() {
+  constructor(
+    private route: Router
+  ) {
 
   }
 
@@ -30,6 +33,10 @@ export class MapPage implements OnInit {
       center: [-49.342471, -16.648095],
       zoom: 15
     });
+  }
+
+  public backPage() {
+    this.route.navigateByUrl('agenda');
   }
 
 }
