@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ReservasService } from 'src/app/services/reservas.service';
+
 @Component({
   selector: 'app-agenda',
   templateUrl: './agenda.page.html',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgendaPage implements OnInit {
 
-  constructor() { }
+  constructor(public reservaService: ReservasService) { }
 
   ngOnInit() {
+    
   }
 
 }

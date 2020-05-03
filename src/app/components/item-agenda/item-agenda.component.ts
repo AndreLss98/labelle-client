@@ -25,7 +25,7 @@ export class ItemAgendaComponent implements OnInit {
   ngOnInit() {
     this.reserva.servicos.forEach(servico => {
       this.servicos += `${this.servicosService.servicos.find(service => service.id === servico.servico_id).nome} - `;
-    })
+    });
   }
 
   public viewDetails() {

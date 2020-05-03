@@ -11,7 +11,7 @@ export class ReservasService {
       id: 1,
       dia: 25,
       horario: "08:00",
-      cliente: {
+      profissional: {
         nome: "Maria Judite da Dores",
         img_perfil: "assets/imgs/woman_1.jpg"
       },

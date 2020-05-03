@@ -1,3 +1,22 @@
 <ion-content>
-
+  <ion-grid>
+      <ion-row>
+          <ion-col class="ion-text-center">
+              <ion-title>Agenda</ion-title>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+  <calendario></calendario>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <item-agenda *ngFor="let servico of reservaService.reservas" [reserva]="servico"></item-agenda>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

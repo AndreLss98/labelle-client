@@ -19,6 +19,6 @@ export interface ProServico {
 export interface Profissional {
     nome: string;
     img_perfil: string;
-    diasTrabalho: DiasTrabalho;
-    servicosDisponiveis: ProServico[];
+    diasTrabalho?: DiasTrabalho;
+    servicosDisponiveis?: ProServico[];
 }
