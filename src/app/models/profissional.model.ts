@@ -1,3 +1,14 @@
+export interface Endereco {
+    rua: string;
+    setor: string;
+    numero: number;
+    quadra: number;
+    cidade: string;
+    estado: string;
+    latitude: number;
+    longitude: number;
+}
+
 export interface DiasTrabalho {
     dom: boolean;
     seg: boolean;
@@ -21,4 +32,5 @@ export interface Profissional {
     img_perfil: string;
     diasTrabalho?: DiasTrabalho;
     servicosDisponiveis?: ProServico[];
+    local: Endereco;
 }

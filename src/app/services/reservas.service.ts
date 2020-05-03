@@ -13,7 +13,17 @@ export class ReservasService {
       horario: "08:00",
       profissional: {
         nome: "Maria Judite da Dores",
-        img_perfil: "assets/imgs/woman_1.jpg"
+        img_perfil: "assets/imgs/woman_1.jpg",
+        local: {
+          rua: "12",
+          setor: "Marista",
+          numero: 12,
+          quadra: 20,
+          cidade: "Goiânia",
+          estado: "GO",
+          latitude: -16.695984,
+          longitude: -49.264484
+        }
       },
       servicos: [
         { servico_id: 1, valorPago: 50 },

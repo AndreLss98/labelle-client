@@ -14,6 +14,7 @@ export class ItemAgendaComponent implements OnInit {
 
   @Input() reserva: Reserva;
   public servicos: string = '';
+  public endereco: string = '';
 
   constructor(
     private route: Router,
@@ -23,6 +24,13 @@ export class ItemAgendaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.configItem();
+  }
+
+  private configItem() {
+    const { local } = this.reserva.profissional;
+    this.endereco = `Rua ${local.rua}, N° ${local.numero} - ${local.setor} - ${local.cidade} - ${local.estado}`;
+
     this.reserva.servicos.forEach(servico => {
       this.servicos += `${this.servicosService.servicos.find(service => service.id === servico.servico_id).nome} - `;
     });
