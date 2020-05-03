@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
 import { ReservaResolverService } from './resolvers/reserva-resolver.service';
+import { ProfissionaisResolverService } from './resolvers/profissionais-resolver.service';
 
 const routes: Routes = [
   {
@@ -25,7 +27,14 @@ const routes: Routes = [
   },
   {
     path: 'map',
+    resolve: {
+      profissionais: ProfissionaisResolverService
+    },
     loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
+  },
+  {
+    path: 'salon/:id',
+    loadChildren: () => import('./pages/salon/salon.module').then( m => m.SalonPageModule)
   },
 ];
 

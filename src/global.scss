@@ -31,7 +31,34 @@ a.mapboxgl-ctrl-logo {
 
 div.mapboxgl-ctrl.mapboxgl-ctrl-attrib.mapboxgl-compact {
     display: none !important;
-}  
+}
+
+div.mapboxgl-popup-content {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f2f2f2;
+    box-shadow: 1px 1px 10px grey;
+    ion-grid {
+      padding: 0;
+      ion-row ion-col {
+        padding: 0;
+      }
+
+      ion-row ion-col img {
+        max-height: 110px;
+      }
+      ion-row ion-col h4 {
+        margin: 0;
+        color: #B4B4B4;
+      }
+      ion-row ion-col p {
+        margin: 0;
+        color: #B4B4B4;
+      }
+    }
+}
+  
 
 h1 {
     color: var(--ion-color-primary);

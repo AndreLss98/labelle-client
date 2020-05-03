@@ -28,6 +28,7 @@ export interface ProServico {
 }
 
 export interface Profissional {
+    id: number;
     nome: string;
     img_perfil: string;
     diasTrabalho?: DiasTrabalho;

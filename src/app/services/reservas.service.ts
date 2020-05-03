@@ -12,6 +12,7 @@ export class ReservasService {
       dia: 25,
       horario: "08:00",
       profissional: {
+        id: 1,
         nome: "Maria Judite da Dores",
         img_perfil: "assets/imgs/woman_1.jpg",
         local: {
