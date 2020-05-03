@@ -1,3 +1,52 @@
 <ion-content>
+  <div id="bg"></div>
+  <div id="logo-container">
+    <ion-icon src="assets/logo.svg"></ion-icon>
+    <div>
+      <h1>La</h1>
+      <h1>Belle</h1>
+    </div>
+  </div>
+  <div id="input-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h4>Login</h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="ion-align-self-center">
+          <small>Esqueceu sua senha?</small>
+        </ion-col>
+        <ion-col class="ion-align-self-center" style="display: flex; justify-content: flex-end;">
+          <ion-fab-button (click)="login()">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-col>
+      </ion-row>
+      <ion-row id="cadastro">
+        <ion-col class="ion-text-center">
+          <p>Não tenho cadastro</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

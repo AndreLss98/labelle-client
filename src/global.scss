@@ -24,3 +24,20 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+h1 {
+    color: var(--ion-color-primary);
+}
+
+p {
+    color: #B4B4B4;
+}
+
+small {
+    color: #B4B4B4;
+}
+
+ion-button {
+    text-transform: none;
+    --box-shadow: none;
+}
