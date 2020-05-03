@@ -23,6 +23,10 @@ const routes: Routes = [
     },
     loadChildren: () => import('./pages/detalhes-reserva/detalhes-reserva.module').then( m => m.DetalhesReservaPageModule)
   },
+  {
+    path: 'map',
+    loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
+  },
 ];
 
 @NgModule({

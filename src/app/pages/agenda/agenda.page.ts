@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { ReservasService } from 'src/app/services/reservas.service';
@@ -9,10 +10,19 @@ import { ReservasService } from 'src/app/services/reservas.service';
 })
 export class AgendaPage implements OnInit {
 
-  constructor(public reservaService: ReservasService) { }
+  constructor(
+    public route: Router,
+    public reservaService: ReservasService
+  ) {
+
+  }
 
   ngOnInit() {
     
+  }
+
+  public openMap() {
+    this.route.navigateByUrl('map');
   }
 
 }

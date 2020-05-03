@@ -1,0 +1,17 @@
+ion-content {
+    position: relative;
+    div.back-btn {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 10;
+        ion-icon {
+            font-size: 2em;
+        }
+    }
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
