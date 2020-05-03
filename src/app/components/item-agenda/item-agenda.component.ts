@@ -37,6 +37,6 @@ export class ItemAgendaComponent implements OnInit {
   }
 
   public viewDetails() {
-    this.route.navigateByUrl('detalhes-reserva/1');
+    this.route.navigateByUrl(`detalhes-reserva/${this.reserva.id}`);
   }
 }
