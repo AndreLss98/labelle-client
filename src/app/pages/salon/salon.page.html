@@ -36,22 +36,29 @@
         <calendario></calendario>
         <line-separator [text]="'Escolha os serviços'" [textSize]="6" [lineSize]="3"></line-separator>
         <input-servico *ngFor="let servico of servicosDisponiveis" [servico]="servico"></input-servico>
-        <ion-row class="ion-justify-content center">
-            <ion-col size="1" class="ion-text-center">
+        <ion-row class="ion-justify-content-center">
+            <ion-col size="4" class="ion-text-center">
                 <div class="line"></div>
             </ion-col>
         </ion-row>
-        <ion-row>
-            <ion-col>
+        <ion-row class="total-line ion-justify-content-around">
+            <ion-col size="4" class="ion-text-center">
                 <h6>Total:</h6>
             </ion-col>
 
-            <ion-col>
-                <h4>65,00</h4>
+            <ion-col size="4" class="ion-text-center">
+                <ion-row class="total ion-justify-content-end">
+                    <ion-col size="1" style="display: flex;" class="ion-align-self-center">
+                        <ion-icon src="assets/cash_gray.svg"></ion-icon>
+                    </ion-col>
+                    <ion-col size="7" class="ion-align-self-center">
+                        <h4>65,00</h4>
+                    </ion-col>
+                </ion-row>
             </ion-col>
         </ion-row>
     </ion-grid>
     <div id="footer-btn">
-        <ion-button color="primary">Reservar</ion-button>
+        <ion-button color="primary" size="large" expand="block">Reservar</ion-button>
     </div>
 </ion-content>

@@ -22,6 +22,4 @@ export class SalonPage implements OnInit {
     this.profissional = this.route.snapshot.data.profissional;
     this.servicosDisponiveis = this.profissional.servicosDisponiveis.filter(servico => servico.disponivel);
   }
-
-
 }

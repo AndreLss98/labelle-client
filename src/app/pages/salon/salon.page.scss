@@ -9,3 +9,29 @@
         padding: 0;
     }
 }
+
+div.line {
+    height: 1px;
+    width: 100%;
+    background-color: #B4B4B4;
+}
+
+ion-row.total-line {
+    h4 {
+        margin: 0;
+        color: #E1E1E1;
+    }
+    h6 {
+        margin: 0;
+        color: #B4B4B4;
+    }
+}
+
+ion-row.total ion-col {
+    padding: 0;
+}
+
+#footer-btn {
+    padding: 5px;
+    box-shadow: -1px -1px 10px 1px rgba(0 ,0 , 0, .15);
+}
