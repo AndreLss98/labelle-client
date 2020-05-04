@@ -1,9 +1,57 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>salon</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<header [url]="'/map'"></header>
 <ion-content>
+    <ion-grid id="title-header">
+        <ion-row>
+            <ion-col size="4">
+                <circle-img [img_path]="'assets/imgs/woman_1.jpg'" [color]="'#fff'"></circle-img>
+            </ion-col>
+            <ion-col class="ion-align-self-center">
+                <ion-row>
+                    <ion-col class="ion-text-center">
+                        <h4>Maria Judite</h4>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="ion-justify-content-evenly">
+                    <ion-col size="1">
+                        <ion-icon src="assets/star_2.svg"></ion-icon>
+                    </ion-col>
+                    <ion-col size="1">
+                        <ion-icon src="assets/star_2.svg"></ion-icon>
+                    </ion-col>
+                    <ion-col size="1">
+                        <ion-icon src="assets/star_2.svg"></ion-icon>
+                    </ion-col>
+                    <ion-col size="1">
+                        <ion-icon src="assets/star_2.svg"></ion-icon>
+                    </ion-col>
+                    <ion-col size="1">
+                        <ion-icon src="assets/star_2.svg"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <line-separator [text]="'Escolha o dia'" [textSize]="4" [lineSize]="4"></line-separator>
+        <calendario></calendario>
+        <line-separator [text]="'Escolha os serviços'" [textSize]="6" [lineSize]="3"></line-separator>
+        <input-servico *ngFor="let servico of servicosDisponiveis" [servico]="servico"></input-servico>
+        <ion-row class="ion-justify-content center">
+            <ion-col size="1" class="ion-text-center">
+                <div class="line"></div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h6>Total:</h6>
+            </ion-col>
 
+            <ion-col>
+                <h4>65,00</h4>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div id="footer-btn">
+        <ion-button color="primary">Reservar</ion-button>
+    </div>
 </ion-content>

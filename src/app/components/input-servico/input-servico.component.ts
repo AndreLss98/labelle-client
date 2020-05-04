@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Servico } from 'src/app/models/servico.model';
+import { ProServico } from 'src/app/models/profissional.model';
 
-import { UserService } from 'src/app/services/user.service';
+import { ServicosService } from 'src/app/services/servicos.service';
 
 @Component({
   selector: 'input-servico',
@@ -11,12 +12,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class InputServicoComponent implements OnInit {
 
-  @Input() servico: Servico;
+  @Input() servico: ProServico;
   public formatedValue: string = '0,00';
   public disponivel: boolean = false;
+  public formatedService: Servico;
 
   constructor(
-    private userService: UserService
+    private servicoService: ServicosService
   ) {
 
   }
@@ -26,9 +28,8 @@ export class InputServicoComponent implements OnInit {
   }
 
   private configInput() {
-/*     const service = this.userService.user.servicosDisponiveis.find(servcicoDis => servcicoDis.servico_id === this.servico.id);
-    this.formatedValue = service.valor.toFixed(2).replace(/\./, ',');
-    this.disponivel = service.disponivel; */
+    this.formatedService = this.servicoService.servicos.find(servico => servico.id === this.servico.servico_id);
+    this.formatedValue = this.servico.valor.toFixed(2).replace(/\./, ',');
   }
 
   public onClickInput() {

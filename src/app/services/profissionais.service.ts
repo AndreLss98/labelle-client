@@ -47,4 +47,8 @@ export class ProfissionaisService {
   get profissionais() {
     return this._profissionais;
   }
+
+  public getById(id: number) {
+    return this.profissionais.find(profissional => profissional.id === id);
+  }
 }

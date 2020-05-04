@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { ReservaResolverService } from './resolvers/reserva-resolver.service';
 import { ProfissionaisResolverService } from './resolvers/profissionais-resolver.service';
+import { ProfissionalResolverService } from './resolvers/profissional-resolver.service';
 
 const routes: Routes = [
   {
@@ -34,6 +35,9 @@ const routes: Routes = [
   },
   {
     path: 'salon/:id',
+    resolve: {
+      profissional: ProfissionalResolverService
+    },
     loadChildren: () => import('./pages/salon/salon.module').then( m => m.SalonPageModule)
   },
 ];
