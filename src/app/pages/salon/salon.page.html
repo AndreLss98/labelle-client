@@ -35,7 +35,7 @@
         <line-separator [text]="'Escolha o dia'" [textSize]="4" [lineSize]="4"></line-separator>
         <calendario></calendario>
         <line-separator [text]="'Escolha os serviços'" [textSize]="6" [lineSize]="3"></line-separator>
-        <input-servico *ngFor="let servico of servicosDisponiveis" [servico]="servico"></input-servico>
+        <input-servico *ngFor="let servico of servicosDisponiveis" [servico]="servico" (changeSelection)="onChangeSelections($event)"></input-servico>
         <ion-row class="ion-justify-content-center">
             <ion-col size="4" class="ion-text-center">
                 <div class="line"></div>
@@ -52,7 +52,7 @@
                         <ion-icon src="assets/cash_gray.svg"></ion-icon>
                     </ion-col>
                     <ion-col size="7" class="ion-align-self-center">
-                        <h4>65,00</h4>
+                        <h4>{{ totalFormated }}</h4>
                     </ion-col>
                 </ion-row>
             </ion-col>

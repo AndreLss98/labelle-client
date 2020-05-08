@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { Servico } from 'src/app/models/servico.model';
 import { ProServico } from 'src/app/models/profissional.model';
@@ -13,8 +13,11 @@ import { ServicosService } from 'src/app/services/servicos.service';
 export class InputServicoComponent implements OnInit {
 
   @Input() servico: ProServico;
+
+  @Output() changeSelection = new EventEmitter();
+
   public formatedValue: string = '0,00';
-  public disponivel: boolean = false;
+  public selecionado: boolean = false;
   public formatedService: Servico;
 
   constructor(
@@ -33,7 +36,8 @@ export class InputServicoComponent implements OnInit {
   }
 
   public onClickInput() {
-    this.disponivel = !this.disponivel;
+    this.selecionado = !this.selecionado;
+    this.changeSelection.emit({ valor: this.servico.valor, selecionado: this.selecionado });
   }
 
   public formatValueInput() {
