@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 import { Reserva } from '../models/reserva.model';
 
@@ -14,6 +15,7 @@ import { environment } from 'src/environments/environment';
 export class ReservasService {
 
   public reservas: Reserva[] = [];
+  public daysWithReservas: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
 
 
   constructor(

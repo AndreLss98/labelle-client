@@ -51,7 +51,7 @@
 
 .day {
     font-weight: normal;
-    margin: 8px 0;
+    margin: 4px 0;
     font-size: 0.7em;
     font-weight: 600;
 }
@@ -76,26 +76,16 @@
     padding: 5px;
 }
 
-ion-content.sem-evento.area{
-    background: #fff;			
-}
-div.sem-evento{    
+.day-container {
     display: flex;
-    height: 30%;
-    justify-content: center;
-    flex-direction: column;	
-    text-align: center;
-    background: #fff!important;
+    flex-direction: column;
+    align-items: center;
+}
 
-    p{
-        color: #596273;
-        font-size: 16px;
-        font-weight: bold;
-        margin: 5px 0px 0px 0px;
-    }
-
-    span{        
-        color: #596273;
-        font-size: 15px;             
-    }
+.point {
+    width: 5px;
+    height: 5px;
+    margin-top: 5px;
+    background-color: white;
+    border-radius: 5px;
 }

@@ -18,14 +18,12 @@ export class ItemAgendaComponent implements OnInit {
   public endereco: string = '';
 
   constructor(
-    private route: Router,
-    private servicosService: ServicosService,
+    private route: Router
   ) {
 
   }
 
   ngOnInit() {
-    console.log("Item agenda: ", this.reserva);
     this.configItem();
   }
 

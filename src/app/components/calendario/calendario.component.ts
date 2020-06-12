@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { NOME_DIAS_DA_SEMANA, NOME_MESES } from './../../shared/constants';
+import { ReservasService } from 'src/app/services/reservas.service';
 
 @Component({
   selector: 'calendario',
@@ -8,6 +9,8 @@ import { NOME_DIAS_DA_SEMANA, NOME_MESES } from './../../shared/constants';
   styleUrls: ['./calendario.component.scss'],
 })
 export class CalendarioComponent implements OnInit {
+
+  diasComReserva: number[] = [];
 
   readonly NOME_MESES = NOME_MESES;
   readonly diaSemana = NOME_DIAS_DA_SEMANA;
@@ -22,8 +25,11 @@ export class CalendarioComponent implements OnInit {
   @Output() monthChange = new EventEmitter();
   @Output() dayChange = new EventEmitter();
 
-  constructor() {
-
+  constructor(private reservasService: ReservasService) {
+    reservasService.daysWithReservas.subscribe(value => {
+      this.diasComReserva = value;
+      this.updateCalendario();
+    });
   }
 
   ngOnInit() {
@@ -31,6 +37,7 @@ export class CalendarioComponent implements OnInit {
   }
 
   public mesAnterior() {
+    this.diasComReserva = [];
     if (this.numeroMesSelecionado === 0) {
       this.numeroMesSelecionado = 11;
       this.anoSelecionado--;
@@ -42,6 +49,7 @@ export class CalendarioComponent implements OnInit {
   }
 
   public proximoMes() {
+    this.diasComReserva = [];
     if (this.numeroMesSelecionado === 11) {
       this.numeroMesSelecionado = 0;
       this.anoSelecionado++;
@@ -68,7 +76,7 @@ export class CalendarioComponent implements OnInit {
     }
 
     for (let i = 1; i <= tamanhoDoMes; i++) {
-      tempMes.push({ numero: i, isCurrentMonth: true });
+      tempMes.push({ numero: i, isCurrentMonth: true, hasService: this.diasComReserva.includes(i) });
     }
     return tempMes;
   }

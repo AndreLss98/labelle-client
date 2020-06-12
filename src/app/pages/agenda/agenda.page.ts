@@ -12,6 +12,7 @@ import { Reserva } from 'src/app/models/reserva.model';
 export class AgendaPage implements OnInit {
 
   private timeoutInstance;
+
   public filteredReservas: Reserva[] = [];
 
   constructor(
@@ -29,8 +30,8 @@ export class AgendaPage implements OnInit {
     clearTimeout(this.timeoutInstance);
     this.timeoutInstance = setTimeout(() => {
       this.reservaService.getAllOfMonth(event.mesSelecionado, event.anoSelecionado).subscribe((response: any) => {
-        console.log("Reservas: ", response.data);
         this.reservaService.reservas = response.data.reservas;
+        this.reservaService.daysWithReservas.next(response.data.reservas.map(reserva => reserva.dia));
         this.filterByDay(event.diaSelecionado);
       }, (error) => {
         console.log("Reservas error: ", error);
