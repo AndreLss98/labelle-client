@@ -13,32 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ReservasService {
 
-  public reservas: Reserva[] = [
-    {
-      id: 1,
-      dia: 25,
-      horario: "08:00",
-      profissional: {
-        id: 1,
-        nome: "Maria Judite da Dores",
-        img_perfil: "assets/imgs/woman_1.jpg",
-        local: {
-          rua: "12",
-          setor: "Marista",
-          numero: 12,
-          quadra: 20,
-          cidade: "Goiânia",
-          estado: "GO",
-          latitude: -16.695984,
-          longitude: -49.264484
-        }
-      },
-      servicos: [
-        { servico_id: 1, valorPago: 50 },
-        { servico_id: 2, valorPago: 20 },
-      ]
-    }
-  ]
+  public reservas: Reserva[] = [];
 
 
   constructor(
@@ -60,11 +35,17 @@ export class ReservasService {
     const body =
     `{
       reservas(cliente_id: ${this.userService.user.id}, mes: ${mes}, ano: ${ano}) {
-        horario
+        id horario dia
         servicos {
           valor_pago,
           tipo {
             nome
+          }
+        }
+        profissional {
+          nome,
+          local {
+            rua numero setor cidade estado
           }
         }
       }

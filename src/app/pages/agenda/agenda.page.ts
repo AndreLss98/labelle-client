@@ -28,6 +28,7 @@ export class AgendaPage implements OnInit {
     this.timeoutInstance = setTimeout(() => {
       this.reservaService.getAllOfMonth(event.mesSelecionado, event.anoSelecionado).subscribe((response: any) => {
         console.log("Reservas: ", response.data);
+        this.reservaService.reservas = response.data.reservas;
       }, (error) => {
         console.log("Reservas error: ", error);
       });

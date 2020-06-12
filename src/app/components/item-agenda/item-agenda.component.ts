@@ -25,14 +25,15 @@ export class ItemAgendaComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("Item agenda: ", this.reserva);
     this.configItem();
   }
 
   private configItem() {
     this.endereco = formatAddres(this.reserva.profissional.local);
 
-    this.reserva.servicos.forEach(servico => {
-      this.servicos += `${this.servicosService.servicos.find(service => service.id === servico.servico_id).nome} - `;
+    this.reserva.servicos.forEach((servico: any) => {
+      this.servicos += `${servico.tipo.nome} - `;
     });
   }
 
