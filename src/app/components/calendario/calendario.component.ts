@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { NOME_DIAS_DA_SEMANA, NOME_MESES } from './../../shared/constants';
 
@@ -18,6 +18,8 @@ export class CalendarioComponent implements OnInit {
   public nomeMesSelecionado: string = NOME_MESES[this.numeroMesSelecionado];
   public diasMesSelecionado: number[] = [];
 
+  @Output() monthChange = new EventEmitter();
+
   constructor() {
 
   }
@@ -34,6 +36,7 @@ export class CalendarioComponent implements OnInit {
       this.numeroMesSelecionado--;
     }
     this.updateCalendario();
+    this.monthChange.emit({ mesSelecionado: this.numeroMesSelecionado, anoSelecionado: this.anoSelecionado });
   }
 
   public proximoMes() {
@@ -44,6 +47,7 @@ export class CalendarioComponent implements OnInit {
       this.numeroMesSelecionado++;
     }
     this.updateCalendario();
+    this.monthChange.emit({ mesSelecionado: this.numeroMesSelecionado, anoSelecionado: this.anoSelecionado });
   }
 
   private updateCalendario() {

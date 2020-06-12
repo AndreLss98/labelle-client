@@ -10,6 +10,8 @@ import { ReservasService } from 'src/app/services/reservas.service';
 })
 export class AgendaPage implements OnInit {
 
+  private timeoutInstance;
+
   constructor(
     public route: Router,
     public reservaService: ReservasService
@@ -19,6 +21,16 @@ export class AgendaPage implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  public onMonthChange(event) {
+    clearTimeout(this.timeoutInstance);
+    this.timeoutInstance = setTimeout(() => {
+      this.reservaService.getAllOfMonth(event.mesSelecionado, event.anoSelecionado).subscribe((response: any) => {
+      }, (error) => {
+        console.log("Reservas error: ", error);
+      });
+    }, 500);
   }
 
   public openMap() {
