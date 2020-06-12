@@ -18,7 +18,7 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating">Email</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="email"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -27,7 +27,7 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating">Senha</ion-label>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="senha" type="password"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -37,7 +37,7 @@
           <small>Esqueceu sua senha?</small>
         </ion-col>
         <ion-col class="ion-align-self-center" style="display: flex; justify-content: flex-end;">
-          <ion-fab-button (click)="login()">
+          <ion-fab-button (click)="login(email, senha)">
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </ion-fab-button>
         </ion-col>

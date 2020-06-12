@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Profissional } from '../models/profissional.model';
 
+import { HttpClient } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,7 +42,9 @@ export class ProfissionaisService {
     }
   ];
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
 
   }
 
