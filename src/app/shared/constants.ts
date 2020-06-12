@@ -9,3 +9,5 @@ export const NOME_DIAS_DA_SEMANA = [
 ];
 
 export const NOME_MESES = ["Janeiro", "Fevereiro", "Março", "Abril",  "Maio","Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+export const USER_STORAGE_KEY = 'LaBelleClient';

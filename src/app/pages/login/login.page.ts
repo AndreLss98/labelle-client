@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, AlertController } from '@ionic/angular';
 
 import { UserService } from 'src/app/services/user.service';
+import { USER_STORAGE_KEY } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +35,7 @@ export class LoginPage implements OnInit {
     this.userService.sigin(email, senha).subscribe(async (response: any) => {
       await this.loader.dismiss();
       this.userService.user = response;
+      localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(this.userService.user));
       this.route.navigateByUrl('/agenda');
     }, async (err) => {
       await this.loader.dismiss();
