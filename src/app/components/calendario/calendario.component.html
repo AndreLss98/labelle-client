@@ -23,7 +23,7 @@
     </ion-row>
     <ion-row class="day-group">
       <ion-col *ngFor="let dia of diasMesSelecionado" class="day" [ngClass]="{ 'selected': dia.numero === diaSelecionado && dia.isCurrentMonth, 'mesAnterior': dia.isCurrentMonth === false}"
-        (click)="selectDay(dia)">
+        (click)="selectDay(dia.numero)">
         <span>{{ dia.numero > 9? dia.numero : '0' + dia.numero }}</span>
       </ion-col>
     </ion-row>

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { ReservasService } from 'src/app/services/reservas.service';
+import { Reserva } from 'src/app/models/reserva.model';
 
 @Component({
   selector: 'app-agenda',
@@ -11,6 +12,7 @@ import { ReservasService } from 'src/app/services/reservas.service';
 export class AgendaPage implements OnInit {
 
   private timeoutInstance;
+  public filteredReservas: Reserva[] = [];
 
   constructor(
     public route: Router,
@@ -29,6 +31,7 @@ export class AgendaPage implements OnInit {
       this.reservaService.getAllOfMonth(event.mesSelecionado, event.anoSelecionado).subscribe((response: any) => {
         console.log("Reservas: ", response.data);
         this.reservaService.reservas = response.data.reservas;
+        this.filterByDay(event.diaSelecionado);
       }, (error) => {
         console.log("Reservas error: ", error);
       });
@@ -37,6 +40,11 @@ export class AgendaPage implements OnInit {
 
   public openMap() {
     this.route.navigateByUrl('map');
+  }
+
+
+  private filterByDay(dia: number) {
+    this.filteredReservas = this.reservaService.reservas.filter(reserva => reserva.dia === dia);
   }
 
 }

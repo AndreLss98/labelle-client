@@ -6,11 +6,11 @@
           </ion-col>
       </ion-row>
   </ion-grid>
-  <calendario (monthChange)="onMonthChange($event)"></calendario>
+  <calendario (monthChange)="onMonthChange($event)" (dayChange)="filterByDay($event.diaSelecionado)"></calendario>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <item-agenda *ngFor="let servico of reservaService.reservas" [reserva]="servico"></item-agenda>
+        <item-agenda *ngFor="let servico of filteredReservas" [reserva]="servico"></item-agenda>
       </ion-col>
     </ion-row>
   </ion-grid>

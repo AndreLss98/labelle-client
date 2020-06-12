@@ -13,12 +13,14 @@ export class CalendarioComponent implements OnInit {
   readonly diaSemana = NOME_DIAS_DA_SEMANA;
 
   public dataAtual = new Date();
+  public diaSelecionado = this.dataAtual.getDate();
   public anoSelecionado: number = this.dataAtual.getFullYear();
   public numeroMesSelecionado: number = this.dataAtual.getMonth();
   public nomeMesSelecionado: string = NOME_MESES[this.numeroMesSelecionado];
   public diasMesSelecionado: number[] = [];
 
   @Output() monthChange = new EventEmitter();
+  @Output() dayChange = new EventEmitter();
 
   constructor() {
 
@@ -36,7 +38,7 @@ export class CalendarioComponent implements OnInit {
       this.numeroMesSelecionado--;
     }
     this.updateCalendario();
-    this.monthChange.emit({ mesSelecionado: this.numeroMesSelecionado, anoSelecionado: this.anoSelecionado });
+    this.monthChange.emit({ diaSelecionado: this.diaSelecionado, mesSelecionado: this.numeroMesSelecionado, anoSelecionado: this.anoSelecionado });
   }
 
   public proximoMes() {
@@ -47,7 +49,7 @@ export class CalendarioComponent implements OnInit {
       this.numeroMesSelecionado++;
     }
     this.updateCalendario();
-    this.monthChange.emit({ mesSelecionado: this.numeroMesSelecionado, anoSelecionado: this.anoSelecionado });
+    this.monthChange.emit({ diaSelecionado: this.diaSelecionado, mesSelecionado: this.numeroMesSelecionado, anoSelecionado: this.anoSelecionado });
   }
 
   private updateCalendario() {
@@ -98,5 +100,10 @@ export class CalendarioComponent implements OnInit {
   private diaInicial(ano: number, mes: number) {
     let inicio = new Date(ano, mes, 1).getDay();
     return inicio;
+  }
+
+  public selectDay(dia: number) {
+    this.diaSelecionado = dia;
+    this.dayChange.emit({ diaSelecionado: this.diaSelecionado })
   }
 }
