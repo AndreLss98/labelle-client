@@ -6,5 +6,5 @@ export interface Servico {
 
 export interface ServicoPago {
     servico_id: number;
-    valorPago: number;
+    valor_pago: number;
 }

@@ -30,7 +30,25 @@ export class ReservasService {
   }
 
   public getById(id: number) {
-    return this.reservas.find(reserva => reserva.id === id);
+    const body =
+    `{
+      reserva(id: ${id}) {
+        id horario dia mes ano
+        servicos {
+          valor_pago,
+          tipo {
+            nome icone_path
+          }
+        }
+        profissional {
+          nome,
+          local {
+            rua numero setor cidade estado
+          }
+        }
+      }
+    }`;
+    return this.http.post(`${environment.api_base_url}/api`, body, HTTP_OPTIONS);
   }
 
   public getAllOfMonth(mes?: number, ano?: number) {

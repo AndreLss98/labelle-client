@@ -3,7 +3,7 @@
   <ion-grid>
     <ion-row>
       <ion-col class="ion-text-center">
-        <circle-img [img_path]="reserva.profissional.img_perfil" [color]="'#FFEDF2'"></circle-img>
+        <circle-img [img_path]="'assets/imgs/woman_1.jpg'" [color]="'#FFEDF2'"></circle-img>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -13,7 +13,7 @@
     </ion-row>
     <ion-row class="ion-justify-content-around">
       <ion-col size="4">
-          <block-info [info]="reserva.dia" [desc]="'Janeiro'"></block-info>
+          <block-info [info]="reserva.dia" [desc]="mesReserva"></block-info>
       </ion-col>
       <ion-col size="4">
         <block-info [info]="reserva.horario"></block-info>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ServicoPago } from 'src/app/models/servico.model';
+
 import { ServicosService } from 'src/app/services/servicos.service';
 
 @Component({
@@ -9,25 +9,14 @@ import { ServicosService } from 'src/app/services/servicos.service';
 })
 export class BlockServiceComponent implements OnInit {
 
-  @Input() servico: ServicoPago;
-  public icone: string = '';
-  public nome: string = '';
+  @Input() servico;
 
-  constructor(
-    private servicosService: ServicosService
-  ) {
+  constructor() {
 
   }
 
   ngOnInit() {
-    this.configComponent();
-  }
 
-  public configComponent() {
-    const tempService = this.servicosService.servicos.find(servico => servico.id === this.servico.servico_id);
-    this.icone = tempService.icone_path;
-
-    this.nome = tempService.nome;
   }
 
 }
