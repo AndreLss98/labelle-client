@@ -26,7 +26,9 @@ export class MapPage implements OnInit {
 
   ngOnInit() {
     this.startMap();
-    this.profissionais = this.route.snapshot.data.profissionais;
+    console.log("Snapshot: ", this.route.snapshot.data)
+    this.profissionais = this.route.snapshot.data.profissionais.data.profissionais;
+    this.profissionais = this.profissionais.filter(profissional => profissional.disponibilidade.horario_inicio !== null);
   }
 
   ionViewDidEnter() {
@@ -55,7 +57,7 @@ export class MapPage implements OnInit {
         <ion-grid>
           <ion-row>
             <ion-col class="ion-align-self-end" style="display: flex">
-              <img src="${profissional.img_perfil}">
+              <img src="assets/imgs/woman_1.jpg">
             </ion-col>
             <ion-col>
               <ion-row>
@@ -82,7 +84,7 @@ export class MapPage implements OnInit {
               </ion-row>
               <ion-row class="ion-justify-content-center">
                 <ion-col size="8" class="ion-align-self-center">
-                  <p>${profissional.diasTrabalho.horario_inicio} - ${profissional.diasTrabalho.horario_fim}</p>
+                  <p>${profissional.disponibilidade.horario_inicio.substring(0, 5)} - ${profissional.disponibilidade.horario_fim.substring(0, 5)}</p>
                 </ion-col>
                 <ion-col size="1" class="ion-align-self-center" style="display: flex">
                   <ion-icon src="assets/clock.svg"></ion-icon>

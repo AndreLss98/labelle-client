@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
-import { Servico } from 'src/app/models/servico.model';
-import { ProServico } from 'src/app/models/profissional.model';
+import { Servico } from 'src/app/models/profissional.model';
 
 import { ServicosService } from 'src/app/services/servicos.service';
 
@@ -12,7 +11,7 @@ import { ServicosService } from 'src/app/services/servicos.service';
 })
 export class InputServicoComponent implements OnInit {
 
-  @Input() servico: ProServico;
+  @Input() servico: Servico;
 
   @Output() changeSelection = new EventEmitter();
 
@@ -31,7 +30,7 @@ export class InputServicoComponent implements OnInit {
   }
 
   private configInput() {
-    this.formatedService = this.servicoService.servicos.find(servico => servico.id === this.servico.servico_id);
+    // this.formatedService = this.servicoService.servicos.find(servico => servico.id === this.servico.servico_id);
     this.formatedValue = this.servico.valor.toFixed(2).replace(/\./, ',');
   }
 

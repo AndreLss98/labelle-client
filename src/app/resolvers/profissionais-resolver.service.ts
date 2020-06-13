@@ -12,6 +12,6 @@ export class ProfissionaisResolverService implements Resolve<any>{
   }
 
   resolve() {
-    return this.profissionalService.profissionais;
+    return this.profissionalService.getAll();
   }
 }

@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ProServico, Profissional } from 'src/app/models/profissional.model';
+import { Servico, Profissional } from 'src/app/models/profissional.model';
 
 @Component({
   selector: 'app-salon',
@@ -10,7 +10,7 @@ import { ProServico, Profissional } from 'src/app/models/profissional.model';
 export class SalonPage implements OnInit {
 
   public profissional: Profissional;
-  public servicosDisponiveis: ProServico[] = [];
+  public servicosDisponiveis: Servico[] = [];
 
   private total = 0;
   public totalFormated = '0,00';
@@ -22,8 +22,8 @@ export class SalonPage implements OnInit {
   }
 
   ngOnInit() {
-    this.profissional = this.route.snapshot.data.profissional;
-    this.servicosDisponiveis = this.profissional.servicosDisponiveis.filter(servico => servico.disponivel);
+    this.profissional = this.route.snapshot.data.profissional.data.profissional;
+    this.servicosDisponiveis = this.profissional.servicos.filter(servico => servico.disponivel);
   }
 
   public onChangeSelections(event) {

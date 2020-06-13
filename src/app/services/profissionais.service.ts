@@ -1,46 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { environment } from 'src/environments/environment';
 import { Profissional } from '../models/profissional.model';
 
-import { HttpClient } from '@angular/common/http';
+import { HTTP_OPTIONS } from '../shared/http-options';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfissionaisService {
 
-  private _profissionais: Profissional[] = [
-    {
-      id: 1,
-      nome: "Maria Julia",
-      img_perfil: "assets/imgs/woman_1.jpg",
-      diasTrabalho: {
-        dom: false,
-        seg: true,
-        ter: true,
-        qua: false,
-        qui: false,
-        sex: false,
-        sab: false,
-        horario_fim: "10:00",
-        horario_inicio: "17:00"
-      },
-      local: {
-        cidade: "Goiania",
-        estado: "Go",
-        rua: "12",
-        setor: "Marista",
-        numero: null,
-        quadra: 5,
-        latitude: -16.695984,
-        longitude: -49.264484
-      },
-      servicosDisponiveis: [
-        {servico_id: 1, disponivel: true, valor: 50},
-        {servico_id: 2, disponivel: false, valor: 0},
-        {servico_id: 3, disponivel: true, valor: 20},
-      ]
-    }
-  ];
+  private _profissionais: Profissional[] = [];
 
   constructor(
     private http: HttpClient
@@ -52,7 +23,40 @@ export class ProfissionaisService {
     return this._profissionais;
   }
 
-  public getById(id: number) {
-    return this.profissionais.find(profissional => profissional.id === id);
+  public getAll() {
+    const body =
+    `{
+      profissionais {
+        id nome
+        local {
+          latitude longitude
+        }
+        disponibilidade {
+          horario_inicio horario_fim
+        }
+      }
+    }`;
+
+    return this.http.post(`${environment.api_base_url}/api`, body, HTTP_OPTIONS);
+  }
+
+  public getById(id) {
+    const body =
+    `{
+      profissional(id: ${id}) {
+        id nome
+        disponibilidade {
+          horario_inicio horario_fim
+        }
+        servicos {
+          valor disponivel
+          tipo {
+            id nome icone_path
+          }
+        }
+      }
+    }`;
+
+    return this.http.post(`${environment.api_base_url}/api`, body, HTTP_OPTIONS);
   }
 }

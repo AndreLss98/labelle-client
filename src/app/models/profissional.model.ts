@@ -21,17 +21,23 @@ export interface DiasTrabalho {
     horario_fim: string;
 }
 
-export interface ProServico {
-    servico_id: number;
+export interface Servico {
     valor: number;
     disponivel: boolean;
+    tipo: TipoServico
+}
+
+export interface TipoServico {
+    id: number;
+    nome: string;
+    icone_path: string;
 }
 
 export interface Profissional {
     id: number;
     nome: string;
     img_perfil: string;
-    diasTrabalho?: DiasTrabalho;
-    servicosDisponiveis?: ProServico[];
+    disponibilidade?: DiasTrabalho;
+    servicos?: Servico[];
     local: Endereco;
 }
