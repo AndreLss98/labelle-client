@@ -33,7 +33,7 @@
     </ion-grid>
     <ion-grid>
         <line-separator [text]="'Escolha o dia'" [textSize]="4" [lineSize]="4"></line-separator>
-        <calendario></calendario>
+        <calendario (dayChange)="onSelectDate($event)"></calendario>
         <line-separator [text]="'Escolha os serviços'" [textSize]="6" [lineSize]="3"></line-separator>
         <input-servico *ngFor="let servico of servicosDisponiveis" [servico]="servico" (changeSelection)="onChangeSelections($event)"></input-servico>
         <ion-row class="ion-justify-content-center">
@@ -59,6 +59,6 @@
         </ion-row>
     </ion-grid>
     <div id="footer-btn">
-        <ion-button color="primary" size="large" expand="block">Reservar</ion-button>
+        <ion-button color="primary" size="large" expand="block" (click)="makeReserve()">Reservar</ion-button>
     </div>
 </ion-content>

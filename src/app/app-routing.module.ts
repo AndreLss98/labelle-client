@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { ReservaResolverService } from './resolvers/reserva-resolver.service';
 import { ProfissionaisResolverService } from './resolvers/profissionais-resolver.service';
+import { ReservasResolverService } from './resolvers/reservas-resolver.service';
 import { ProfissionalResolverService } from './resolvers/profissional-resolver.service';
 
 const routes: Routes = [
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'agenda',
+    resolve: {
+      reservas: ReservasResolverService
+    },
     loadChildren: () => import('./pages/agenda/agenda.module').then( m => m.AgendaPageModule)
   },
   {

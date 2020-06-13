@@ -49,7 +49,7 @@ export class ProfissionaisService {
           horario_inicio horario_fim
         }
         servicos {
-          valor disponivel
+          id valor disponivel
           tipo {
             id nome icone_path
           }

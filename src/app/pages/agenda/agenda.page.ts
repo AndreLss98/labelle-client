@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { ReservasService } from 'src/app/services/reservas.service';
@@ -16,23 +16,26 @@ export class AgendaPage implements OnInit {
   public filteredReservas: Reserva[] = [];
 
   constructor(
-    public route: Router,
+    public router: Router,
+    private route: ActivatedRoute,
     public reservaService: ReservasService
   ) {
 
   }
 
   ngOnInit() {
-    
+    console.log("Route: ", this.route.snapshot.data.reservas.data.reservas);
+  }
+
+  ionViewDidEnter() {
+    this.updateScreen(this.route.snapshot.data.reservas.data.reservas);
   }
 
   public onMonthChange(event) {
     clearTimeout(this.timeoutInstance);
     this.timeoutInstance = setTimeout(() => {
       this.reservaService.getAllOfMonth(event.mesSelecionado, event.anoSelecionado).subscribe((response: any) => {
-        this.reservaService.reservas = response.data.reservas;
-        this.reservaService.daysWithReservas.next(response.data.reservas.map(reserva => reserva.dia));
-        this.filterByDay(event.diaSelecionado);
+        this.updateScreen(response.data.reservas, event.diaSelecionado);
       }, (error) => {
         console.log("Reservas error: ", error);
       });
@@ -40,12 +43,18 @@ export class AgendaPage implements OnInit {
   }
 
   public openMap() {
-    this.route.navigateByUrl('map');
+    this.router.navigateByUrl('map');
   }
-
 
   private filterByDay(dia: number) {
     this.filteredReservas = this.reservaService.reservas.filter(reserva => reserva.dia === dia);
+  }
+
+  private updateScreen(reservas, dia?: number) {
+    if (!dia) dia = new Date().getDate();
+    this.reservaService.reservas = reservas;
+    this.reservaService.daysWithReservas.next(reservas.map(reserva => reserva.dia));
+    this.filterByDay(dia);
   }
 
 }

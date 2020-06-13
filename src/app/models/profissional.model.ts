@@ -22,6 +22,7 @@ export interface DiasTrabalho {
 }
 
 export interface Servico {
+    id: number;
     valor: number;
     disponivel: boolean;
     tipo: TipoServico

@@ -33,7 +33,13 @@ export class ReservasService {
     return this.reservas.find(reserva => reserva.id === id);
   }
 
-  public getAllOfMonth(mes: number, ano: number) {
+  public getAllOfMonth(mes?: number, ano?: number) {
+
+    if (!mes && !ano) {
+      mes = new Date().getMonth();
+      ano = new Date().getFullYear();
+    }
+
     const body =
     `{
       reservas(cliente_id: ${this.userService.user.id}, mes: ${mes}, ano: ${ano}) {
@@ -53,5 +59,21 @@ export class ReservasService {
       }
     }`;
     return this.http.post(`${environment.api_base_url}/api`, body, HTTP_OPTIONS);
+  }
+
+  public createReserve(dataDaReserva, profissional_id, servicos) {
+    const body = {
+      reserva: {
+        cliente_id: this.userService.user.id,
+        profissional_id,
+        dia: dataDaReserva.diaSelecionado,
+        mes: dataDaReserva.mesSelecionado,
+        ano: dataDaReserva.anoSelecionado,
+        horario: "15:00"
+      },
+      servicos
+    };
+
+    return this.http.post(`${environment.api_base_url}/clientes/reserva`, body);
   }
 }

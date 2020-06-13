@@ -33,6 +33,7 @@ export class CalendarioComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.diasComReserva = [];
     this.diasMesSelecionado = this.diasMesAtual(this.numeroMesSelecionado, this.anoSelecionado);
   }
 
@@ -112,6 +113,6 @@ export class CalendarioComponent implements OnInit {
 
   public selectDay(dia: number) {
     this.diaSelecionado = dia;
-    this.dayChange.emit({ diaSelecionado: this.diaSelecionado })
+    this.dayChange.emit({ diaSelecionado: this.diaSelecionado, mesSelecionado: this.numeroMesSelecionado, anoSelecionado: this.anoSelecionado })
   }
 }

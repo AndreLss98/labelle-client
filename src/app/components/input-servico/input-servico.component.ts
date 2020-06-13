@@ -30,13 +30,13 @@ export class InputServicoComponent implements OnInit {
   }
 
   private configInput() {
-    // this.formatedService = this.servicoService.servicos.find(servico => servico.id === this.servico.servico_id);
+    console.log("Servico: ", this.servico)
     this.formatedValue = this.servico.valor.toFixed(2).replace(/\./, ',');
   }
 
   public onClickInput() {
     this.selecionado = !this.selecionado;
-    this.changeSelection.emit({ valor: this.servico.valor, selecionado: this.selecionado });
+    this.changeSelection.emit({ id: this.servico.id, valor: this.servico.valor, selecionado: this.selecionado });
   }
 
   public formatValueInput() {
