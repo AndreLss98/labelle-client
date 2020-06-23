@@ -64,4 +64,8 @@ export class LoginPage implements OnInit {
     })
   }
 
+  public testeFunction() {
+    const id = 1;
+    this.route.navigateByUrl(`cadastro/${id}`);
+  }
 }
