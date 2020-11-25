@@ -1,6 +1,6 @@
 <ion-row [class.selected]="selecionado" (click)="onClickInput()">
   <ion-col size="2" class="ion-align-self-center">
-    <ion-icon class="input-icon" [src]="servico.tipo.icone_path"></ion-icon>
+    <ion-icon class="input-icon" [src]="'assets/' + servico.tipo.icone_path"></ion-icon>
   </ion-col>
   <ion-col size="7" class="ion-align-self-center ion-text-center">
     <h6>{{ servico.tipo.nome }}</h6>

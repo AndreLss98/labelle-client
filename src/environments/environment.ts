@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   maptoken: 'pk.eyJ1IjoiYW5kcmVsdWlzcyIsImEiOiJjazNmdmNvMGkwOTR2M3BuenB4YjNmeDhpIn0.GUaalSOSv1QW-mT_PNEgCQ',
-  api_base_url: 'http://104.248.228.164:3000'
+  api_base_url: 'http://192.168.0.20'
 };
 
 /*

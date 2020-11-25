@@ -56,7 +56,7 @@ export class MapPage implements OnInit {
       .setHTML(`
         <ion-grid>
           <ion-row>
-            <ion-col class="ion-align-self-end" style="display: flex">
+            <ion-col class="ion-align-self-center" style="display: flex">
               <img src="assets/imgs/woman_1.jpg">
             </ion-col>
             <ion-col>
