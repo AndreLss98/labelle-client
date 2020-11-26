@@ -15,6 +15,7 @@ import { BlockServiceComponent } from './block-service/block-service.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { EnderecoComponent } from './endereco/endereco.component';
 import { UserOptionsPopoverComponent } from './user-options-popover/user-options-popover.component';
+import { EmptyPageComponent } from './empty-page/empty-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { UserOptionsPopoverComponent } from './user-options-popover/user-options
     BlockServiceComponent,
     EnderecoComponent,
     UserOptionsPopoverComponent,
+    EmptyPageComponent,
   ],
   imports: [
     FormsModule,
@@ -49,6 +51,7 @@ import { UserOptionsPopoverComponent } from './user-options-popover/user-options
     BlockServiceComponent,
     EnderecoComponent,
     UserOptionsPopoverComponent,
+    EmptyPageComponent,
   ]
 })
 export class ComponentsModule { }

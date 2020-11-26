@@ -15,7 +15,9 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <item-agenda *ngFor="let servico of filteredReservas" [reserva]="servico"></item-agenda>
+        <ng-container *ngIf="filteredReservas.length; else empty">
+          <item-agenda *ngFor="let servico of filteredReservas" [reserva]="servico"></item-agenda>
+        </ng-container>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -25,3 +27,7 @@
     </ion-fab-button>
   </ion-fab>
 </ion-content>
+
+<ng-template #empty>
+  <empty-page></empty-page>
+</ng-template>
