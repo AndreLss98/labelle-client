@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { ReservasService } from 'src/app/services/reservas.service';
 import { Reserva } from 'src/app/models/reserva.model';
+import { PopoverController } from '@ionic/angular';
+import { UserOptionsPopoverComponent } from 'src/app/components/user-options-popover/user-options-popover.component';
 
 @Component({
   selector: 'app-agenda',
@@ -18,7 +20,8 @@ export class AgendaPage implements OnInit {
   constructor(
     public router: Router,
     private route: ActivatedRoute,
-    public reservaService: ReservasService
+    public reservaService: ReservasService,
+    public popoverController: PopoverController,
   ) {
 
   }
@@ -29,6 +32,17 @@ export class AgendaPage implements OnInit {
 
   ionViewDidEnter() {
     this.updateScreen(this.route.snapshot.data.reservas.data.reservas);
+  }
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: UserOptionsPopoverComponent,
+      event: ev,
+      translucent: true,
+      mode: 'ios',
+      keyboardClose: true
+    });
+    return await popover.present();
   }
 
   public onMonthChange(event) {
