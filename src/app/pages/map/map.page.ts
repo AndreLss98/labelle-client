@@ -62,7 +62,7 @@ export class MapPage implements OnInit {
             <ion-col>
               <ion-row>
                 <ion-col class="ion-text-center">
-                  <h4>${profissional.nome}</h4>
+                  <h4>${profissional.nome.slice(0, 15)}</h4>
                 </ion-col>
               </ion-row>
               <ion-row class="ion-justify-content-around">
